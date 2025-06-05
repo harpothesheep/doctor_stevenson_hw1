@@ -1,0 +1,26 @@
+def two_sum(nums, target):
+    num_dict = {}
+    answer1 = 0
+    answer2 = 0
+    found = False
+
+    for i in range(len(nums)):
+        current_num = nums[i]
+        complement = target - current_num
+
+        if complement in num_dict:
+            answer1 = num_dict[complement]
+            answer2 = i
+            found = True
+            break
+        else:
+            num_dict[current_num] = i
+
+    if found:
+        return [answer1, answer2]
+    else:
+        return []
+
+print(two_sum([2, 7, 11, 15], 9))
+print(two_sum([3, 2, 4], 6))
+print(two_sum([3, 3], 6))
